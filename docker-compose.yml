@@ -1,0 +1,18 @@
+services:
+  llmwiki:
+    image: llmwiki:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+    init: true
+    command: ["llmwiki", "up"]
+    volumes:
+      - ./vault:/app/vault
+      - ./llmwiki.toml:/app/llmwiki.toml:ro
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+    ports:
+      - "8501:8501" # Dashboard
+      - "1313:1313" # Quartz UI
+      - "8000:8000" # Optional REST gateway
+    restart: unless-stopped

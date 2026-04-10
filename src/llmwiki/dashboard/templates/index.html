@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLMWiki Dashboard</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">🚢 LLMWiki <span>Observability</span></div>
+            <div class="vault-info">Vault: <code>{{ vault }}</code></div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="stats-grid">
+            <div class="card stat-card">
+                <h3>Total Entities</h3>
+                <div class="value" id="stat-entities">-</div>
+            </div>
+            <div class="card stat-card">
+                <h3>Processed Sources</h3>
+                <div class="value" id="stat-processed">-</div>
+            </div>
+            <div class="card stat-card">
+                <h3>Total Sources</h3>
+                <div class="value" id="stat-total">-</div>
+            </div>
+        </section>
+
+        <div class="main-grid">
+            <section class="activity-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>📝 Recent Activity</h2>
+                        <div class="header-controls">
+                            <span class="pulse-indicator">Live</span>
+                        </div>
+                    </div>
+                    
+                    <div id="traces-container" class="traces-list">
+                        <!-- Traces will be injected here -->
+                    </div>
+
+                    <div class="pagination-controls">
+                        <button id="prev-page" class="btn">Previous</button>
+                        <span id="page-info">Page 1</span>
+                        <button id="next-page" class="btn">Next</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="knowledge-section">
+                <div class="card">
+                    <h2>📚 Knowledge Base</h2>
+                    <div id="knowledge-list" class="knowledge-list">
+                        <!-- Entities will be injected here -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

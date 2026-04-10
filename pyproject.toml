@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llmwiki"
+version = "0.1.0"
+description = "A multi-language project workspace generated from this Copier template."
+readme = "README.md"
+requires-python = ">= 3.12"
+dependencies = [
+  "pydantic-ai",
+  "openai",
+  "python-frontmatter",
+  "pdfminer.six",
+  "Pillow",
+  "rich",
+  "click",
+  "httpx",
+  "trafilatura",
+  "duckduckgo-search",
+  "watchfiles",
+  "fastapi",
+  "uvicorn",
+  "jinja2",
+]
+
+[project.scripts]
+llmwiki = "llmwiki.cli:cli"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
