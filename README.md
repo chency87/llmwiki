@@ -109,6 +109,7 @@ docker compose up --build
 
 GitHub Actions also builds the Docker image on push to `main`, on pull requests, and on manual dispatch via `.github/workflows/docker.yml`.
 Published image target: `ghcr.io/chency87/llmwiki`
+The image and Compose setup use `llmwiki.toml.example` as the checked-in default config, mounted in-container as `/app/llmwiki.toml`.
 
 ## Storage Layout
 - `vault/raw/`: source files and URL extracts.

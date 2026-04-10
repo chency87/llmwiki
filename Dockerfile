@@ -23,8 +23,8 @@ COPY quartz /app/quartz
 RUN cd quartz && npm ci
 
 COPY vault /app/vault
-COPY llmwiki.toml /app/llmwiki.toml
 COPY llmwiki.toml.example /app/llmwiki.toml.example
+COPY llmwiki.toml.example /app/llmwiki.toml
 
 EXPOSE 8000 8501 1313
 

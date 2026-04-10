@@ -92,7 +92,7 @@ services:
     init: true
     volumes:
       - ./vault:/app/vault
-      - ./llmwiki.toml:/app/llmwiki.toml:ro
+      - ./llmwiki.toml.example:/app/llmwiki.toml:ro
     environment:
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}
     command: ["llmwiki", "up"]
@@ -101,6 +101,8 @@ services:
       - "1313:1313"
       - "8000:8000"
 ```
+
+The checked-in default container config comes from `llmwiki.toml.example`, mounted as `/app/llmwiki.toml` so runtime config discovery still works unchanged.
 
 ## GitHub Actions
 
