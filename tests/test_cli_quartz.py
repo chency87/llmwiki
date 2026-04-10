@@ -45,7 +45,7 @@ def test_build_syncs_before_running_quartz(monkeypatch):
     ]
 
 
-def test_server_forwards_host_and_port_to_quartz(monkeypatch):
+def test_server_uses_supported_quartz_preview_flags(monkeypatch):
     calls = []
 
     class DummyStore:
@@ -81,7 +81,7 @@ def test_server_forwards_host_and_port_to_quartz(monkeypatch):
     assert ("thread-started", True) in calls
     assert (
         "run",
-        ["npx", "quartz", "build", "--serve", "--port", "4321", "--host", "0.0.0.0"],
+        ["npx", "quartz", "build", "--serve", "--port", "4321"],
         "quartz",
         True,
     ) in calls

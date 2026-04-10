@@ -99,6 +99,9 @@ Options:
 - `--port <int>`
 - `--host <host>`
 
+Runtime note:
+- Quartz v4 in this repository only consumes the selected port. `--host` is retained on the LLMWiki command surface for config compatibility, but it is not forwarded to the Quartz CLI.
+
 ### `llmwiki up`
 Start `watch`, `dashboard`, `maintenance`, and `server` together; add `gateway` when enabled in config.
 Behavior notes:

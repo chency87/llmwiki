@@ -634,7 +634,9 @@ def server(config: Settings, port: int, host: str):
     port = port or config.server.port
     host = host or config.server.host
     vault_path = config.paths.vault
-    console.print(f"[bold blue]Starting Quartz server on {host}:{port}...[/bold blue]")
+    console.print(
+        f"[bold blue]Starting Quartz server on port {port} (requested host: {host})...[/bold blue]"
+    )
     
     from llmwiki.db.store import Store
     store = Store(vault_path)
@@ -653,9 +655,9 @@ def server(config: Settings, port: int, host: str):
             return
 
         sync_to_quartz(vault_path)
-        # Quartz v4 uses npx quartz build --serve
+        # Quartz v4's build CLI supports --port but not --host.
         subprocess.run(
-            ["npx", "quartz", "build", "--serve", "--port", str(port), "--host", host],
+            ["npx", "quartz", "build", "--serve", "--port", str(port)],
             cwd="quartz",
             check=True,
         )

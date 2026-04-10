@@ -23,6 +23,8 @@ To start the interactive preview server (defaulting to port 1313):
 llmwiki server
 ```
 
+Quartz v4 in this repository exposes the preview server port through the CLI. The LLMWiki `--host` setting is not forwarded because Quartz does not accept a `--host` flag for `build --serve`.
+
 ## Configuration
 The visualization layer is configured via:
 - `quartz/quartz.config.ts`: Global settings (Title, Base URL, Plugins).

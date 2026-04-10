@@ -41,7 +41,7 @@ Each cycle runs `reflect`, `evolve`, and `maintain`.
 
 ### Quartz Server
 ```bash
-llmwiki server --host 0.0.0.0 --port 1313
+llmwiki server --port 1313
 ```
 
 ### Gateway
@@ -79,6 +79,9 @@ host = "0.0.0.0"
 port = 8000
 api_key = ""
 ```
+
+Quartz note:
+- The vendored Quartz preview CLI accepts `--port` but not `--host`. The `[server].host` setting remains as LLMWiki-side metadata and is not forwarded to `npx quartz build --serve`.
 
 ## Container Example
 
