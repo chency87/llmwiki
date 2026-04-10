@@ -107,8 +107,11 @@ services:
 The repository includes `.github/workflows/docker.yml` to:
 - validate `docker-compose.yml`
 - build the Docker image with Buildx
+- publish `ghcr.io/chency87/llmwiki` on non-PR runs
 
 It runs on pull requests, pushes to `main`, and manual dispatch.
+
+If the GHCR package does not inherit public visibility automatically on first publish, switch it to public once in the GitHub package settings.
 
 ## Stopping Services
 Use `Ctrl+C` to stop `llmwiki up` and terminate all child services.
